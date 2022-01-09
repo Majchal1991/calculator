@@ -58,7 +58,7 @@
             this.btn_C.TabIndex = 0;
             this.btn_C.Text = "C";
             this.btn_C.UseVisualStyleBackColor = true;
-            this.btn_C.Click += new System.EventHandler(this.btn_C_Click);
+            this.btn_C.Click += new System.EventHandler(this.Btn_C_Click);
             // 
             // btn_Div
             // 
