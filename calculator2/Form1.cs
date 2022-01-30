@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace calculator2
 {
     public partial class Form1 : Form
     {
-
-        private string comma = (Convert.ToString(0.1)).Substring(1);
-        //private Boolean isListExpandRequired = true;
-        private Double decimals = 0;
-        List<String> Values = new List<String>();
-        List<string> operators = new List<string>();
-
         private CalculatorNumber num1 = new CalculatorNumber();
         private CalculatorNumber num2 = new CalculatorNumber();
         private CalculatorNumber answer = new CalculatorNumber();
-
         private string sign = "";
-        private Boolean solved = false;
 
         public Form1()
         {
@@ -34,14 +24,12 @@ namespace calculator2
             tb_inp.Text = num1.StringValue();
             tb_inp.Text += sign;
             tb_inp.Text += num2.StringValue();
-
         }
 
         private void Solve()
         {
             if (num2.IsUsed())
             {
-
                 switch (sign)
                 {
                     case "/":
@@ -67,7 +55,6 @@ namespace calculator2
 
                 tb_ans.Clear();
                 tb_ans.Text = answer.StringValue();
-                //solved = true;
             }
         }
 
@@ -75,14 +62,12 @@ namespace calculator2
         {
             if (answer.HasErrorValue()) return;
 
-            //if (solved )
             if (answer.IsUsed())
             {
                 num1.AddInput(answer.Value());
                 num2.Clear();
                 answer.Clear();
                 sign = inp1;
-                solved = false;
             }
             else if (num1.IsUsed() )
             {
@@ -96,7 +81,6 @@ namespace calculator2
         {
             if (answer.HasErrorValue()) return;
 
-            //if (!solved )
             if (!answer.IsUsed())  
             {
                 if (sign != "")
@@ -110,8 +94,6 @@ namespace calculator2
 
                 PrintInputs();
             }
-
-
         }
 
         private void Btn_C_Click(object sender, EventArgs e)
@@ -121,11 +103,8 @@ namespace calculator2
 
             num1.Clear();
             num2.Clear();
-            sign = "";
-            solved = false;
-
             answer.Clear();
-
+            sign = "";
         }
 
         private void btn_0_Click(object sender, EventArgs e) => AddInput(0);
@@ -146,8 +125,6 @@ namespace calculator2
 
         private void btn_Dot_Click(object sender, EventArgs e)
         {
-            //if (decimals == 0 && Values.Count >0) { decimals = 1; }
-            //if (!solved)
             if(!answer.IsUsed())
             {
                 if (sign != "")
@@ -159,7 +136,6 @@ namespace calculator2
                     num1.TurnOnDecimal();
                 }
             }
-
         }
 
 
