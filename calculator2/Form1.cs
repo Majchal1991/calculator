@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace calculator2
@@ -21,7 +15,9 @@ namespace calculator2
 
         private CalculatorNumber num1 = new CalculatorNumber();
         private CalculatorNumber num2 = new CalculatorNumber();
-        private string sign="";
+        private CalculatorNumber answer = new CalculatorNumber();
+
+        private string sign = "";
         private Boolean solved = false;
 
         public Form1()
@@ -32,56 +28,63 @@ namespace calculator2
         private void PrintInputs()
         {
             tb_ans.Clear();
-            tb_inp.Clear();
+            tb_ans.Text= answer.StringValue();
 
             tb_inp.Clear();
             tb_inp.Text = num1.StringValue();
             tb_inp.Text += sign;
             tb_inp.Text += num2.StringValue();
+
         }
 
         private void Solve()
         {
-            double tempValue1;
-
             if (num2.IsUsed())
             {
-                tempValue1 = 0;
 
                 switch (sign)
                 {
                     case "/":
-                        tempValue1 = num1.Value() / num2.Value();
+                        if (num2.Value()!=0) 
+                        { 
+                            answer.AddInput(num1.Value() / num2.Value());
+                        }
+                        else
+                        {
+                            answer.setError("DIV/0");
+                        }
                         break;
                     case "*":
-                        tempValue1 = num1.Value() * num2.Value();
+                        answer.AddInput(num1.Value() * num2.Value());
                         break;
                     case "+":
-                        tempValue1 = num1.Value() + num2.Value();
+                        answer.AddInput(num1.Value() + num2.Value());
                         break;
                     case "-":
-                        tempValue1 = num1.Value() - num2.Value();
+                        answer.AddInput(num1.Value() - num2.Value());
                         break;
                 }
 
                 tb_ans.Clear();
-                tb_ans.Text = Convert.ToString(tempValue1);
-                solved= true;
-
-            } 
+                tb_ans.Text = answer.StringValue();
+                //solved = true;
+            }
         }
 
         private void AddInput(string inp1)
         {
+            if (answer.HasErrorValue()) return;
 
-            if (solved)
+            //if (solved )
+            if (answer.IsUsed())
             {
-                num1.AddInput(num2.Value());
+                num1.AddInput(answer.Value());
                 num2.Clear();
+                answer.Clear();
                 sign = inp1;
                 solved = false;
             }
-            else if(num1.IsUsed())
+            else if (num1.IsUsed() )
             {
                 sign = inp1;
             }
@@ -91,7 +94,10 @@ namespace calculator2
 
         private void AddInput(double inp1)
         {
-            if (!solved)
+            if (answer.HasErrorValue()) return;
+
+            //if (!solved )
+            if (!answer.IsUsed())  
             {
                 if (sign != "")
                 {
@@ -104,8 +110,8 @@ namespace calculator2
 
                 PrintInputs();
             }
-            
-            
+
+
         }
 
         private void Btn_C_Click(object sender, EventArgs e)
@@ -118,7 +124,9 @@ namespace calculator2
             sign = "";
             solved = false;
 
-    }
+            answer.Clear();
+
+        }
 
         private void btn_0_Click(object sender, EventArgs e) => AddInput(0);
         private void btn_1_Click(object sender, EventArgs e) => AddInput(1);
@@ -139,7 +147,8 @@ namespace calculator2
         private void btn_Dot_Click(object sender, EventArgs e)
         {
             //if (decimals == 0 && Values.Count >0) { decimals = 1; }
-            if (!solved)
+            //if (!solved)
+            if(!answer.IsUsed())
             {
                 if (sign != "")
                 {
@@ -150,13 +159,13 @@ namespace calculator2
                     num1.TurnOnDecimal();
                 }
             }
-            
+
         }
 
 
         private void btn_Ans_Click(object sender, EventArgs e) => Solve();
 
-        
+
 
     }
 
@@ -164,8 +173,10 @@ namespace calculator2
     {
         private Boolean isUsed = false;
         private long decimals = 0;
-        private double num=0;
+        private double num = 0;
         private long additionalZeros;
+        private string errorType="";
+
 
         public CalculatorNumber()
         {
@@ -178,13 +189,21 @@ namespace calculator2
             decimals = 0;
             num = 0;
             additionalZeros = 0;
+            errorType = "";
         }
 
-
+        public void setError(string errorType)
+        {
+            this.errorType = errorType;
+        }
         public string StringValue()
         {
-            string comma = (Convert.ToString(0.1)).Substring(1,1);
+            string comma = (Convert.ToString(0.1)).Substring(1, 1);
             string outstring;
+            if (HasErrorValue())
+            {
+                return errorType;
+            }
 
             if (isUsed == false)
             {
@@ -194,23 +213,23 @@ namespace calculator2
             {
                 outstring = Convert.ToString(num);
 
-                if (decimals >0 && decimals == additionalZeros+1)
+                if (decimals > 0 && decimals == additionalZeros + 1)
                 {
                     outstring += comma;
                 }
-                
-                for(int i = 0; i < additionalZeros; i++)
+
+                for (int i = 0; i < additionalZeros; i++)
                 {
                     outstring += "0";
                 }
-                
-                    
+
+
                 return outstring;
             }
         }
 
-        public Double Value() 
-        { 
+        public Double Value()
+        {
             return num;
         }
 
@@ -221,7 +240,7 @@ namespace calculator2
             if (decimals > 0)
             {
 
-                if (inp == 0 )
+                if (inp == 0)
                 {
                     additionalZeros++;
                 }
@@ -255,6 +274,18 @@ namespace calculator2
         public Boolean IsUsed()
         {
             return isUsed;
+        }
+
+        public Boolean HasErrorValue()
+        {
+            if(errorType !="")
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
         }
     }
 }
