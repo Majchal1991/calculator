@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btn_C = new System.Windows.Forms.Button();
             this.btn_Div = new System.Windows.Forms.Button();
             this.btn_Mul = new System.Windows.Forms.Button();
@@ -262,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 450);
+            this.ClientSize = new System.Drawing.Size(319, 450);
             this.Controls.Add(this.tb_ans);
             this.Controls.Add(this.tb_inp);
             this.Controls.Add(this.btn_Dot);
@@ -282,8 +283,10 @@
             this.Controls.Add(this.btn_C);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.btn_Ans);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

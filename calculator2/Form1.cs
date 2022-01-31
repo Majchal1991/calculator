@@ -24,6 +24,7 @@ namespace calculator2
             tb_inp.Text = num1.StringValue();
             tb_inp.Text += sign;
             tb_inp.Text += num2.StringValue();
+
         }
 
         private void Solve()
@@ -37,9 +38,15 @@ namespace calculator2
                         { 
                             answer.AddInput(num1.Value() / num2.Value());
                         }
+                        else if(num2.Value()==0 && num1.Value()==0)
+                        {
+                            answer.setError("Indeterminate form");
+                            ErrorLock(true);
+                        }
                         else
                         {
-                            answer.setError("DIV/0");
+                            answer.setError("Division by zero");
+                            ErrorLock(true);
                         }
                         break;
                     case "*":
@@ -56,6 +63,26 @@ namespace calculator2
                 tb_ans.Clear();
                 tb_ans.Text = answer.StringValue();
             }
+        }
+
+        private void ErrorLock(bool v)
+        {
+            btn_0.Enabled = !v;
+            btn_1.Enabled = !v;
+            btn_2.Enabled = !v;
+            btn_3.Enabled = !v;
+            btn_4.Enabled = !v;
+            btn_5.Enabled = !v;
+            btn_6.Enabled = !v;
+            btn_7.Enabled = !v;
+            btn_8.Enabled = !v;
+            btn_9.Enabled = !v;
+            btn_Div.Enabled = !v;
+            btn_Add.Enabled = !v;
+            btn_Min.Enabled = !v;
+            btn_Mul.Enabled = !v;
+            btn_Dot.Enabled = !v;
+            btn_Ans.Enabled = !v;
         }
 
         private void AddInput(string inp1)
@@ -94,9 +121,16 @@ namespace calculator2
 
                 PrintInputs();
             }
+            else
+            {
+                Clear();
+                num1.AddInput(Convert.ToByte(inp1));
+
+                PrintInputs();
+            }
         }
 
-        private void Btn_C_Click(object sender, EventArgs e)
+        private void Clear()
         {
             tb_ans.Clear();
             tb_inp.Clear();
@@ -105,6 +139,12 @@ namespace calculator2
             num2.Clear();
             answer.Clear();
             sign = "";
+            ErrorLock(false);
+        }
+
+        private void Btn_C_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
 
         private void btn_0_Click(object sender, EventArgs e) => AddInput(0);
@@ -141,8 +181,10 @@ namespace calculator2
 
         private void btn_Ans_Click(object sender, EventArgs e) => Solve();
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
     public class CalculatorNumber
@@ -189,7 +231,7 @@ namespace calculator2
             {
                 outstring = Convert.ToString(num);
 
-                if (decimals > 0 && decimals == additionalZeros + 1)
+                if (decimals > 0 && decimals == additionalZeros + 1 && additionalZeros!=0)
                 {
                     outstring += comma;
                 }
