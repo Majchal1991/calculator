@@ -1,6 +1,6 @@
-﻿namespace calculator2
+﻿namespace CalculatorForm
 {
-    partial class Form1
+    partial class CalculatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
             this.btn_C = new System.Windows.Forms.Button();
-            this.btn_Div = new System.Windows.Forms.Button();
-            this.btn_Mul = new System.Windows.Forms.Button();
-            this.btn_Min = new System.Windows.Forms.Button();
+            this.btn_Divide = new System.Windows.Forms.Button();
+            this.btn_Multiply = new System.Windows.Forms.Button();
+            this.btn_Subtract = new System.Windows.Forms.Button();
             this.btn_7 = new System.Windows.Forms.Button();
             this.btn_8 = new System.Windows.Forms.Button();
             this.btn_9 = new System.Windows.Forms.Button();
@@ -43,8 +43,8 @@
             this.btn_2 = new System.Windows.Forms.Button();
             this.btn_3 = new System.Windows.Forms.Button();
             this.btn_0 = new System.Windows.Forms.Button();
-            this.btn_Dot = new System.Windows.Forms.Button();
-            this.btn_Ans = new System.Windows.Forms.Button();
+            this.btn_Comma = new System.Windows.Forms.Button();
+            this.btn_Execute = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.tb_inp = new System.Windows.Forms.TextBox();
             this.tb_ans = new System.Windows.Forms.TextBox();
@@ -61,38 +61,38 @@
             this.btn_C.UseVisualStyleBackColor = true;
             this.btn_C.Click += new System.EventHandler(this.Btn_C_Click);
             // 
-            // btn_Div
+            // btn_Divide
             // 
-            this.btn_Div.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Div.Location = new System.Drawing.Point(81, 114);
-            this.btn_Div.Name = "btn_Div";
-            this.btn_Div.Size = new System.Drawing.Size(75, 60);
-            this.btn_Div.TabIndex = 0;
-            this.btn_Div.Text = "/";
-            this.btn_Div.UseVisualStyleBackColor = true;
-            this.btn_Div.Click += new System.EventHandler(this.btn_Div_Click);
+            this.btn_Divide.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Divide.Location = new System.Drawing.Point(81, 114);
+            this.btn_Divide.Name = "btn_Divide";
+            this.btn_Divide.Size = new System.Drawing.Size(75, 60);
+            this.btn_Divide.TabIndex = 0;
+            this.btn_Divide.Text = "/";
+            this.btn_Divide.UseVisualStyleBackColor = true;
+            this.btn_Divide.Click += new System.EventHandler(this.btn_Divide_Click);
             // 
-            // btn_Mul
+            // btn_Multiply
             // 
-            this.btn_Mul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Mul.Location = new System.Drawing.Point(162, 114);
-            this.btn_Mul.Name = "btn_Mul";
-            this.btn_Mul.Size = new System.Drawing.Size(75, 60);
-            this.btn_Mul.TabIndex = 0;
-            this.btn_Mul.Text = "*";
-            this.btn_Mul.UseVisualStyleBackColor = true;
-            this.btn_Mul.Click += new System.EventHandler(this.btn_Mul_Click);
+            this.btn_Multiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Multiply.Location = new System.Drawing.Point(162, 114);
+            this.btn_Multiply.Name = "btn_Multiply";
+            this.btn_Multiply.Size = new System.Drawing.Size(75, 60);
+            this.btn_Multiply.TabIndex = 0;
+            this.btn_Multiply.Text = "*";
+            this.btn_Multiply.UseVisualStyleBackColor = true;
+            this.btn_Multiply.Click += new System.EventHandler(this.btn_Multiply_Click);
             // 
-            // btn_Min
+            // btn_Subtract
             // 
-            this.btn_Min.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Min.Location = new System.Drawing.Point(243, 114);
-            this.btn_Min.Name = "btn_Min";
-            this.btn_Min.Size = new System.Drawing.Size(75, 60);
-            this.btn_Min.TabIndex = 0;
-            this.btn_Min.Text = "-";
-            this.btn_Min.UseVisualStyleBackColor = true;
-            this.btn_Min.Click += new System.EventHandler(this.btn_Min_Click);
+            this.btn_Subtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Subtract.Location = new System.Drawing.Point(243, 114);
+            this.btn_Subtract.Name = "btn_Subtract";
+            this.btn_Subtract.Size = new System.Drawing.Size(75, 60);
+            this.btn_Subtract.TabIndex = 0;
+            this.btn_Subtract.Text = "-";
+            this.btn_Subtract.UseVisualStyleBackColor = true;
+            this.btn_Subtract.Click += new System.EventHandler(this.btn_Subtract_Click);
             // 
             // btn_7
             // 
@@ -204,27 +204,27 @@
             this.btn_0.UseVisualStyleBackColor = true;
             this.btn_0.Click += new System.EventHandler(this.btn_0_Click);
             // 
-            // btn_Dot
+            // btn_Comma
             // 
-            this.btn_Dot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Dot.Location = new System.Drawing.Point(162, 378);
-            this.btn_Dot.Name = "btn_Dot";
-            this.btn_Dot.Size = new System.Drawing.Size(75, 60);
-            this.btn_Dot.TabIndex = 0;
-            this.btn_Dot.Text = ".";
-            this.btn_Dot.UseVisualStyleBackColor = true;
-            this.btn_Dot.Click += new System.EventHandler(this.btn_Dot_Click);
+            this.btn_Comma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Comma.Location = new System.Drawing.Point(162, 378);
+            this.btn_Comma.Name = "btn_Comma";
+            this.btn_Comma.Size = new System.Drawing.Size(75, 60);
+            this.btn_Comma.TabIndex = 0;
+            this.btn_Comma.Text = ".";
+            this.btn_Comma.UseVisualStyleBackColor = true;
+            this.btn_Comma.Click += new System.EventHandler(this.btn_Dot_Click);
             // 
-            // btn_Ans
+            // btn_Execute
             // 
-            this.btn_Ans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_Ans.Location = new System.Drawing.Point(243, 312);
-            this.btn_Ans.Name = "btn_Ans";
-            this.btn_Ans.Size = new System.Drawing.Size(75, 126);
-            this.btn_Ans.TabIndex = 0;
-            this.btn_Ans.Text = "=";
-            this.btn_Ans.UseVisualStyleBackColor = true;
-            this.btn_Ans.Click += new System.EventHandler(this.btn_Ans_Click);
+            this.btn_Execute.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_Execute.Location = new System.Drawing.Point(243, 312);
+            this.btn_Execute.Name = "btn_Execute";
+            this.btn_Execute.Size = new System.Drawing.Size(75, 126);
+            this.btn_Execute.TabIndex = 0;
+            this.btn_Execute.Text = "=";
+            this.btn_Execute.UseVisualStyleBackColor = true;
+            this.btn_Execute.Click += new System.EventHandler(this.btn_Execute_Click);
             // 
             // btn_Add
             // 
@@ -259,32 +259,32 @@
             this.tb_ans.TabIndex = 1;
             this.tb_ans.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // Form1
+            // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 450);
             this.Controls.Add(this.tb_ans);
             this.Controls.Add(this.tb_inp);
-            this.Controls.Add(this.btn_Dot);
+            this.Controls.Add(this.btn_Comma);
             this.Controls.Add(this.btn_3);
             this.Controls.Add(this.btn_6);
             this.Controls.Add(this.btn_2);
             this.Controls.Add(this.btn_9);
             this.Controls.Add(this.btn_5);
             this.Controls.Add(this.btn_0);
-            this.Controls.Add(this.btn_Min);
+            this.Controls.Add(this.btn_Subtract);
             this.Controls.Add(this.btn_1);
             this.Controls.Add(this.btn_8);
             this.Controls.Add(this.btn_4);
-            this.Controls.Add(this.btn_Mul);
+            this.Controls.Add(this.btn_Multiply);
             this.Controls.Add(this.btn_7);
-            this.Controls.Add(this.btn_Div);
+            this.Controls.Add(this.btn_Divide);
             this.Controls.Add(this.btn_C);
             this.Controls.Add(this.btn_Add);
-            this.Controls.Add(this.btn_Ans);
+            this.Controls.Add(this.btn_Execute);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "CalculatorForm";
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -295,9 +295,9 @@
         #endregion
 
         private System.Windows.Forms.Button btn_C;
-        private System.Windows.Forms.Button btn_Div;
-        private System.Windows.Forms.Button btn_Mul;
-        private System.Windows.Forms.Button btn_Min;
+        private System.Windows.Forms.Button btn_Divide;
+        private System.Windows.Forms.Button btn_Multiply;
+        private System.Windows.Forms.Button btn_Subtract;
         private System.Windows.Forms.Button btn_7;
         private System.Windows.Forms.Button btn_8;
         private System.Windows.Forms.Button btn_9;
@@ -308,8 +308,8 @@
         private System.Windows.Forms.Button btn_2;
         private System.Windows.Forms.Button btn_3;
         private System.Windows.Forms.Button btn_0;
-        private System.Windows.Forms.Button btn_Dot;
-        private System.Windows.Forms.Button btn_Ans;
+        private System.Windows.Forms.Button btn_Comma;
+        private System.Windows.Forms.Button btn_Execute;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.TextBox tb_inp;
         private System.Windows.Forms.TextBox tb_ans;

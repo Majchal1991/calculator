@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace calculator2.Properties
+namespace Calculator.Properties
 {
 
 

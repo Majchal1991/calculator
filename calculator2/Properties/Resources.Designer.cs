@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace calculator2.Properties
+namespace Calculator.Properties
 {
 
 
@@ -35,7 +35,8 @@ namespace calculator2.Properties
         }
 
         /// <summary>
-        ///   Returns the cached ResourceManager instance used by this class.
+        ///   
+        /// s the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager

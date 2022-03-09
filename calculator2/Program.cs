@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace calculator2
+namespace CalculatorForm
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace calculator2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new CalculatorForm());
         }
     }
 }
