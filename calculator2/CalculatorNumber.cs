@@ -34,7 +34,7 @@ namespace Calculator
 
         public string GetStringValue()
         {
-            string comma = (Convert.ToString(0.1)).Substring(1, 1);
+            string decimalSeparator = (Convert.ToString(0.1)).Substring(1, 1);
             string resultString;
 
             if (HasErrorValue())
@@ -52,7 +52,7 @@ namespace Calculator
 
                 if (decimalsCount > 0 && decimalsCount == additionalZerosCount + 1 && additionalZerosCount != 0)
                 {
-                    resultString += comma;
+                    resultString += decimalSeparator;
                 }
 
                 for (int i = 0; i < additionalZerosCount; i++)
@@ -72,6 +72,7 @@ namespace Calculator
         public void AddDigit(int input)
         {
             const double decimalMultiplier = 10;
+            const double decimalDivider = 0.1;
 
             isUsed = true;
 
@@ -83,7 +84,7 @@ namespace Calculator
                 }
                 else
                 {
-                    number += input * Math.Pow(0.1, decimalsCount);
+                    number += input * Math.Pow(decimalDivider, decimalsCount);
                     additionalZerosCount = 0;
                 }
 
