@@ -1,4 +1,4 @@
-﻿namespace CalculatorForm
+﻿namespace Calculator
 {
     public class OperatorSigns
     {
