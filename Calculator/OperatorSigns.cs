@@ -6,7 +6,6 @@
         public const string subtract = "-";
         public const string multiply = "*";
         public const string divide = "/";
-
     }
 
 }

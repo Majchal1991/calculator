@@ -53,6 +53,8 @@
     <Compile Include="CalculatorForm.Designer.cs">
       <DependentUpon>CalculatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalculatorNumberConstants.cs" />
+    <Compile Include="DecimalSeparator.cs" />
     <Compile Include="OperatorSigns.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
